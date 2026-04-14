@@ -1,7 +1,7 @@
-import BiodataDiri from './pertemuan-2/BiodataDiri'
+import Pertemuan4 from './pertemuan-4/main'
 
 function App() {
-  return <BiodataDiri />
+  return <Pertemuan4 />
 }
 
 export default App

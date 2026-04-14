@@ -1,0 +1,502 @@
+[
+  {
+    "id": 1,
+    "name": "Soto Ayam Berkah",
+    "category": "Traditional",
+    "rating": 4.8,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1604329760033-ea5992501eae?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Jakarta",
+      "district": "Menteng",
+      "address": "Jl. Cikini Raya No. 45"
+    },
+    "operatingHours": {
+      "open": "10:00 AM",
+      "close": "9:00 PM",
+      "dayOff": "Monday"
+    },
+    "contact": {
+      "phone": "021-3121456",
+      "email": "info@sotoayamberkah.com",
+      "socialMedia": "@sotoayamberkah"
+    },
+    "specialties": ["Soto Ayam", "Perkedel", "Lumpia"],
+    "averageVisit": "45 min"
+  },
+  {
+    "id": 2,
+    "name": "Nasi Padang Sederhana",
+    "category": "Traditional",
+    "rating": 4.6,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Jakarta",
+      "district": "Cilapop",
+      "address": "Jl. Gatot Subroto No. 78"
+    },
+    "operatingHours": {
+      "open": "11:00 AM",
+      "close": "8:00 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "021-4455223",
+      "email": "nasipadang@email.com",
+      "socialMedia": "@nasipadanghdp"
+    },
+    "specialties": ["Nasi Padang", "Rendang", "Sambal Goreng"],
+    "averageVisit": "30 min"
+  },
+  {
+    "id": 3,
+    "name": "Bakso Nyuk Surabaya",
+    "category": "Traditional",
+    "rating": 4.7,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1612874742237-6526221fcf4f?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Surabaya",
+      "district": "Gubeng",
+      "address": "Jl. Basuki Rahmad No. 234"
+    },
+    "operatingHours": {
+      "open": "9:00 AM",
+      "close": "10:00 PM",
+      "dayOff": "Tuesday"
+    },
+    "contact": {
+      "phone": "031-5678901",
+      "email": "bakso@nyuk.com",
+      "socialMedia": "@baksonyuk"
+    },
+    "specialties": ["Bakso Sapi", "Bakso Urat", "Mie Bakso"],
+    "averageVisit": "40 min"
+  },
+  {
+    "id": 4,
+    "name": "Gado-Gado Ibu Siti",
+    "category": "Traditional",
+    "rating": 4.5,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Bandung",
+      "district": "Dago",
+      "address": "Jl. Dago No. 56"
+    },
+    "operatingHours": {
+      "open": "10:30 AM",
+      "close": "8:30 PM",
+      "dayOff": "Sunday"
+    },
+    "contact": {
+      "phone": "022-2012345",
+      "email": "gadogado@ibu.com",
+      "socialMedia": "@gadogadoibusiti"
+    },
+    "specialties": ["Gado-Gado", "Perkedel", "Tahu Goreng"],
+    "averageVisit": "25 min"
+  },
+  {
+    "id": 5,
+    "name": "Warung Makan Rasa Rumah",
+    "category": "Traditional",
+    "rating": 4.4,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1565958011504-98d6efcebc89?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Yogyakarta",
+      "district": "Malioboro",
+      "address": "Jl. Malioboro No. 112"
+    },
+    "operatingHours": {
+      "open": "10:00 AM",
+      "close": "9:00 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "0274-987654",
+      "email": "rasarumah@warung.com",
+      "socialMedia": "@warungraasrumah"
+    },
+    "specialties": ["Nasi Goreng", "Ayam Bakar", "Sop Ayam"],
+    "averageVisit": "35 min"
+  },
+  {
+    "id": 6,
+    "name": "Sushi Sakura",
+    "category": "Japanese",
+    "rating": 4.9,
+    "priceRange": "$$$",
+    "image": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Jakarta",
+      "district": "Senayan",
+      "address": "Plaza Senayan, Lantai 2"
+    },
+    "operatingHours": {
+      "open": "11:00 AM",
+      "close": "10:00 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "021-7218765",
+      "email": "sakura@sushi.jp",
+      "socialMedia": "@sushisakura_id"
+    },
+    "specialties": ["Nigiri Sushi", "Sashimi", "Tempura", "Ramen"],
+    "averageVisit": "60 min"
+  },
+  {
+    "id": 7,
+    "name": "La Bella Pasta",
+    "category": "Italian",
+    "rating": 4.7,
+    "priceRange": "$$",
+    "image": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Jakarta",
+      "district": "Kemang",
+      "address": "Jl. Kemang Raya No. 89"
+    },
+    "operatingHours": {
+      "open": "12:00 PM",
+      "close": "11:00 PM",
+      "dayOff": "Monday"
+    },
+    "contact": {
+      "phone": "021-7898765",
+      "email": "bella@pasta.it",
+      "socialMedia": "@labellapasta_id"
+    },
+    "specialties": ["Carbonara", "Bolognese", "Risotto", "Tiramisu"],
+    "averageVisit": "55 min"
+  },
+  {
+    "id": 8,
+    "name": "BBQ Master Grill",
+    "category": "Western",
+    "rating": 4.6,
+    "priceRange": "$$",
+    "image": "https://images.unsplash.com/photo-1432139555190-58524dae6a55?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Bandung",
+      "district": "Braga",
+      "address": "Jl. Braga No. 76"
+    },
+    "operatingHours": {
+      "open": "5:00 PM",
+      "close": "11:00 PM",
+      "dayOff": "Tuesday"
+    },
+    "contact": {
+      "phone": "022-4235678",
+      "email": "bbq@master.com",
+      "socialMedia": "@bbqmastergrill"
+    },
+    "specialties": ["Grilled Steak", "BBQ Ribs", "Grilled Chicken"],
+    "averageVisit": "70 min"
+  },
+  {
+    "id": 9,
+    "name": "Kopi Nusantara",
+    "category": "Cafe",
+    "rating": 4.8,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Surabaya",
+      "district": "Tanjungsari",
+      "address": "Jl. Pemuda No. 45"
+    },
+    "operatingHours": {
+      "open": "7:00 AM",
+      "close": "6:00 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "031-3334567",
+      "email": "kopinu@cafe.com",
+      "socialMedia": "@kopinusantara"
+    },
+    "specialties": ["Kopi Arabika", "Espresso", "Latte", "Pastry"],
+    "averageVisit": "30 min"
+  },
+  {
+    "id": 10,
+    "name": "Thai Orchid Restaurant",
+    "category": "Thai",
+    "rating": 4.5,
+    "priceRange": "$$",
+    "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Jakarta",
+      "district": "Blok M",
+      "address": "Jl. Ismail Marzuki No. 22"
+    },
+    "operatingHours": {
+      "open": "11:30 AM",
+      "close": "10:30 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "021-7202938",
+      "email": "orchid@thai.com",
+      "socialMedia": "@thaiorcid_id"
+    },
+    "specialties": ["Pad Thai", "Tom Yum", "Green Curry", "Mango Sticky Rice"],
+    "averageVisit": "45 min"
+  },
+  {
+    "id": 11,
+    "name": "Pecel Lele Mas Budi",
+    "category": "Traditional",
+    "rating": 4.3,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1580959375944-abd7e991f971?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Solo",
+      "district": "Laweyan",
+      "address": "Jl. Laweyan No. 99"
+    },
+    "operatingHours": {
+      "open": "10:00 AM",
+      "close": "9:00 PM",
+      "dayOff": "Wednesday"
+    },
+    "contact": {
+      "phone": "0271-654321",
+      "email": "pecel@masbudi.com",
+      "socialMedia": "@pecellelemasb2021"
+    },
+    "specialties": ["Pecel Lele", "Nasi Putih", "Tahu Goreng", "Sambel"],
+    "averageVisit": "30 min"
+  },
+  {
+    "id": 12,
+    "name": "Dim Sum Dynasty",
+    "category": "Chinese",
+    "rating": 4.7,
+    "priceRange": "$$",
+    "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Jakarta",
+      "district": "Glodok",
+      "address": "Jl. Pintu Besar Selatan No. 56"
+    },
+    "operatingHours": {
+      "open": "10:00 AM",
+      "close": "9:00 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "021-6279087",
+      "email": "dimsum@dynasty.cn",
+      "socialMedia": "@dimsumdynasty_id"
+    },
+    "specialties": ["Har Gow", "Siu Mai", "Char Siu Bao", "Teh Tarik"],
+    "averageVisit": "50 min"
+  },
+  {
+    "id": 13,
+    "name": "Pho Vietnam Hanoi",
+    "category": "Vietnamese",
+    "rating": 4.6,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1582834519646-fe00ca3cecce?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Jakarta",
+      "district": "Tebet",
+      "address": "Jl. Tebet Utara Dalam No. 34"
+    },
+    "operatingHours": {
+      "open": "10:30 AM",
+      "close": "9:30 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "021-8305678",
+      "email": "pho@hanoi.vn",
+      "socialMedia": "@phovietnam_id"
+    },
+    "specialties": ["Pho Sapi", "Banh Mi", "Spring Rolls", "Iced Coffee"],
+    "averageVisit": "40 min"
+  },
+  {
+    "id": 14,
+    "name": "Sweet Dreams Bakery",
+    "category": "Bakery",
+    "rating": 4.9,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Bandung",
+      "district": "Riau",
+      "address": "Jl. Riau No. 78"
+    },
+    "operatingHours": {
+      "open": "7:00 AM",
+      "close": "7:00 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "022-2039876",
+      "email": "sweet@dreams.com",
+      "socialMedia": "@sweetdreamsbakery"
+    },
+    "specialties": ["Croissant", "Sourdough Bread", "Cake", "Cookie"],
+    "averageVisit": "25 min"
+  },
+  {
+    "id": 15,
+    "name": "Korean BBQ Seoul",
+    "category": "Korean",
+    "rating": 4.8,
+    "priceRange": "$$",
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561482?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Jakarta",
+      "district": "Kelapa Gading",
+      "address": "Jl. Boulevard Barat No. 45"
+    },
+    "operatingHours": {
+      "open": "5:00 PM",
+      "close": "11:00 PM",
+      "dayOff": "Monday"
+    },
+    "contact": {
+      "phone": "021-4571234",
+      "email": "seoul@korean.kr",
+      "socialMedia": "@koreanbbqseoul"
+    },
+    "specialties": ["Bulgogi", "Galbi", "Bibimbap", "Kimchi Jjigae"],
+    "averageVisit": "65 min"
+  },
+  {
+    "id": 16,
+    "name": "Waffle House Paradise",
+    "category": "Dessert",
+    "rating": 4.4,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Yogyakarta",
+      "district": "Depok",
+      "address": "Jl. Cik Ditiro No. 23"
+    },
+    "operatingHours": {
+      "open": "10:00 AM",
+      "close": "8:00 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "0274-512345",
+      "email": "waffle@paradise.com",
+      "socialMedia": "@wafflehouse_para"
+    },
+    "specialties": ["Waffle", "Ice Cream", "Brownies", "Smoothie Bowl"],
+    "averageVisit": "35 min"
+  },
+  {
+    "id": 17,
+    "name": "Steakhouse Premium",
+    "category": "Western",
+    "rating": 4.9,
+    "priceRange": "$$$",
+    "image": "https://images.unsplash.com/photo-1504674900947-ab1b8a0bdfed?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Jakarta",
+      "district": "SCBD",
+      "address": "Jl. Jend Sudirman No. 200"
+    },
+    "operatingHours": {
+      "open": "6:00 PM",
+      "close": "11:00 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "021-5799888",
+      "email": "premium@steak.com",
+      "socialMedia": "@steakhouseprem"
+    },
+    "specialties": ["Wagyu Steak", "Prime Rib", "Lobster Tail", "Wine Selection"],
+    "averageVisit": "80 min"
+  },
+  {
+    "id": 18,
+    "name": "Martabak Banjar Legendaris",
+    "category": "Traditional",
+    "rating": 4.5,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1585239341710-4b0e9b4d4e21?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Banjarmasin",
+      "district": "Dermaga",
+      "address": "Jl. Sudirman No. 45"
+    },
+    "operatingHours": {
+      "open": "4:00 PM",
+      "close": "11:00 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "0511-3210987",
+      "email": "martabak@banjar.com",
+      "socialMedia": "@martabakbanjar"
+    },
+    "specialties": ["Martabak Manis", "Martabak Telur", "Es Cendol"],
+    "averageVisit": "20 min"
+  },
+  {
+    "id": 19,
+    "name": "Seafood Samudera",
+    "category": "Seafood",
+    "rating": 4.7,
+    "priceRange": "$$",
+    "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Surabaya",
+      "district": "Bulak",
+      "address": "Jl. Jangka No. 67"
+    },
+    "operatingHours": {
+      "open": "11:00 AM",
+      "close": "10:00 PM",
+      "dayOff": "Tuesday"
+    },
+    "contact": {
+      "phone": "031-7534567",
+      "email": "seafood@samudera.com",
+      "socialMedia": "@seafoodsamudera"
+    },
+    "specialties": ["Grilled Fish", "Shrimp Satay", "Crab Soup", "Fried Squid"],
+    "averageVisit": "50 min"
+  },
+  {
+    "id": 20,
+    "name": "Roti Bakar Matahari",
+    "category": "Traditional",
+    "rating": 4.6,
+    "priceRange": "$",
+    "image": "https://images.unsplash.com/photo-1565958011504-98d6efcebc89?w=400&h=300&fit=crop",
+    "location": {
+      "city": "Medan",
+      "district": "Petisah",
+      "address": "Jl. Putri Hijau No. 34"
+    },
+    "operatingHours": {
+      "open": "6:00 AM",
+      "close": "5:00 PM",
+      "dayOff": "None"
+    },
+    "contact": {
+      "phone": "061-4210987",
+      "email": "roti@matahari.com",
+      "socialMedia": "@rotibakar_matahari"
+    },
+    "specialties": ["Roti Bakar", "Teh Tarik", "Kopi", "Telur Ceplok"],
+    "averageVisit": "20 min"
+  }
+]

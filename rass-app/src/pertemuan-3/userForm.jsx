@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { InputField, SelectField } from "./inputField";
+import { InputField, SelectField } from "./components/inputField";
 
 export default function UserForm({ onStatusChange, setSummaryData }) {
   const [formData, setFormData] = useState({ playerId: "", nickname: "", email: "", item: "", payment: "" });

@@ -78,7 +78,8 @@ export default function TailwindCSS() {
 
               {isSuccess && (
                 <div className="mt-12 p-6 bg-cyan-500 text-slate-900 rounded-2xl animate-bounce shadow-[0_0_30px_rgba(6,182,212,0.5)]">
-                  <p className="text-center font-black uppercase text-sm tracking-tighter italic">Mission Accomplished: Supply Dropped!</p>
+                  <p className="text-center font-black uppercase text-sm tracking-tighter italic">
+                    Mission Accomplished: Supply Dropped!</p>
                 </div>
               )}
             </div>

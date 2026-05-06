@@ -1,0 +1,88 @@
+{
+  "stats": [
+    {
+      "id": 1,
+      "label": "Total Pelanggan",
+      "value": "128",
+      "icon": "👥",
+      "trend": "+12%",
+      "color": "blue"
+    },
+    {
+      "id": 2,
+      "label": "Total Kendaraan",
+      "value": "95",
+      "icon": "🚗",
+      "trend": "+5%",
+      "color": "purple"
+    },
+    {
+      "id": 3,
+      "label": "Booking Aktif",
+      "value": "24",
+      "icon": "📅",
+      "trend": "+8%",
+      "color": "orange"
+    },
+    {
+      "id": 4,
+      "label": "Total Pendapatan",
+      "value": "Rp 18Jt",
+      "icon": "💰",
+      "trend": "+15%",
+      "color": "green"
+    }
+  ],
+  "recentBookings": [
+    {
+      "id": 1,
+      "customerName": "Budi Santoso",
+      "vehicleType": "Honda Civic",
+      "serviceType": "Service Rutin",
+      "date": "2026-05-06",
+      "time": "08:00",
+      "status": "completed",
+      "amount": "Rp 500.000"
+    },
+    {
+      "id": 2,
+      "customerName": "Siti Nurhaliza",
+      "vehicleType": "Toyota Avanza",
+      "serviceType": "Perbaikan Mesin",
+      "date": "2026-05-06",
+      "time": "10:30",
+      "status": "in-progress",
+      "amount": "Rp 1.200.000"
+    },
+    {
+      "id": 3,
+      "customerName": "Ahmad Wijaya",
+      "vehicleType": "Suzuki Swift",
+      "serviceType": "Servis AC",
+      "date": "2026-05-06",
+      "time": "14:00",
+      "status": "pending",
+      "amount": "Rp 800.000"
+    },
+    {
+      "id": 4,
+      "customerName": "Rina Kusuma",
+      "vehicleType": "Mitsubishi Pajero",
+      "serviceType": "Perawatan Rutin",
+      "date": "2026-05-06",
+      "time": "16:00",
+      "status": "completed",
+      "amount": "Rp 650.000"
+    },
+    {
+      "id": 5,
+      "customerName": "Bambang Irawan",
+      "vehicleType": "Daihatsu Xenia",
+      "serviceType": "Perbaikan Rem",
+      "date": "2026-05-07",
+      "time": "09:00",
+      "status": "pending",
+      "amount": "Rp 450.000"
+    }
+  ]
+}

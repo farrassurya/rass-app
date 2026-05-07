@@ -22,9 +22,9 @@ export default function MainLayout() {
 
   return (
     <div className="relative min-h-screen overflow-hidden text-slate-100">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.16),transparent_30%),radial-gradient(circle_at_85%_12%,rgba(14,165,233,0.15),transparent_22%),linear-gradient(180deg,#030712_0%,#0b1220_48%,#050816_100%)]" />
-      <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute right-0 top-40 h-80 w-80 rounded-full bg-sky-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(123,87,224,0.16),transparent_30%),radial-gradient(circle_at_85%_12%,rgba(83,149,207,0.15),transparent_22%),linear-gradient(180deg,#0D0F11_0%,#191D23_48%,#0A0C12_100%)]" />
+      <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-[#7B57E0]/10 blur-3xl" />
+      <div className="pointer-events-none absolute right-0 top-40 h-80 w-80 rounded-full bg-[#5395CF]/10 blur-3xl" />
 
       <div className="relative flex min-h-screen flex-col">
         <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />

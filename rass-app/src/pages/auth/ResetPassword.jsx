@@ -32,7 +32,7 @@ export default function ResetPassword() {
   return (
     <div>
       <h2 className="text-2xl font-bold text-white mb-2">Reset Password</h2>
-      <p className="text-slate-300 text-sm mb-6">
+      <p className="text-[#B8C0CC] text-sm mb-6">
         Buat password baru untuk akun Anda
       </p>
 
@@ -47,7 +47,7 @@ export default function ResetPassword() {
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
             placeholder="••••••••"
-            className="w-full bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-smooth"
+            className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
             required
           />
         </div>
@@ -62,13 +62,13 @@ export default function ResetPassword() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="••••••••"
-            className="w-full bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-smooth"
+            className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
             required
           />
         </div>
 
         {/* Password Requirements */}
-        <div className="bg-white bg-opacity-10 rounded-lg p-3 text-sm text-slate-300">
+        <div className="bg-slate-900/50 rounded-lg p-3 text-sm text-[#B8C0CC] border border-[#334E68]/50">
           <p className="font-semibold mb-2">Persyaratan Password:</p>
           <ul className="list-disc list-inside space-y-1 text-xs">
             <li>Minimal 8 karakter</li>
@@ -81,7 +81,7 @@ export default function ResetPassword() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-smooth disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+          className="w-full bg-gradient-to-r from-[#7B57E0] to-[#8B6FE8] text-white font-semibold py-3 rounded-lg hover:from-[#8B6FE8] hover:to-[#9B7EF0] transition-smooth disabled:opacity-50 disabled:cursor-not-allowed mt-6"
         >
           {isLoading ? 'Memproses...' : 'Reset Password'}
         </button>

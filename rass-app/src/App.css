@@ -3,19 +3,27 @@
   transition: all 0.28s ease;
 }
 
+.bg-linear-to-br {
+  background-image: linear-gradient(135deg, var(--tw-gradient-stops));
+}
+
+.bg-linear-to-r {
+  background-image: linear-gradient(90deg, var(--tw-gradient-stops));
+}
+
 .glass-panel {
-  background: rgba(15, 23, 42, 0.72);
+  background: rgba(16, 20, 32, 0.82);
   backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(115, 87, 224, 0.18);
   box-shadow:
-    0 20px 80px rgba(2, 6, 23, 0.42),
+    0 20px 80px rgba(2, 6, 23, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .glass-panel-light {
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(123, 87, 224, 0.16);
 }
 
 .premium-border {
@@ -28,7 +36,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.7), rgba(59, 130, 246, 0.2), rgba(255, 255, 255, 0.08));
+  background: linear-gradient(135deg, rgba(123, 87, 224, 0.6), rgba(83, 149, 207, 0.15), rgba(255, 255, 255, 0.06));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;

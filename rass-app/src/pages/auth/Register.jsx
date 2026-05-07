@@ -32,13 +32,13 @@ export default function Register() {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-yellow-600 mb-2">Buat Akun Baru</h2>
-      <p className="text-slate-500 text-sm mb-6">Daftar untuk memulai</p>
+      <h2 className="text-2xl font-bold text-white mb-2">Buat Akun Baru</h2>
+      <p className="text-[#B8C0CC] text-sm mb-6">Daftar untuk memulai</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Name Input */}
         <div>
-          <label className="block text-slate-500 text-sm font-medium mb-2">
+          <label className="block text-[#B8C0CC] text-sm font-medium mb-2">
             Nama Lengkap
           </label>
           <input
@@ -47,14 +47,14 @@ export default function Register() {
             value={formData.name}
             onChange={handleChange}
             placeholder="Nama Anda"
-            className="w-full bg-white bg-opacity-10 border text-slate-500 border-opacity-20 rounded-lg px-4 py-3 text-black placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-smooth"
+            className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
             required
           />
         </div>
 
         {/* Email Input */}
         <div>
-          <label className="block text-slate-500 text-sm font-medium mb-2">
+          <label className="block text-[#B8C0CC] text-sm font-medium mb-2">
             Email
           </label>
           <input
@@ -63,14 +63,14 @@ export default function Register() {
             value={formData.email}
             onChange={handleChange}
             placeholder="email@bengkel.com"
-            className="w-full bg-white bg-opacity-10 border text-slate-500 border-opacity-20 rounded-lg px-4 py-3 text-black placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-smooth"
+            className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
             required
           />
         </div>
 
         {/* Password Input */}
         <div>
-          <label className="block text-slate-500 text-sm font-medium mb-2">
+          <label className="block text-[#B8C0CC] text-sm font-medium mb-2">
             Password
           </label>
           <input
@@ -79,14 +79,14 @@ export default function Register() {
             value={formData.password}
             onChange={handleChange}
             placeholder="••••••••"
-            className="w-full bg-white bg-opacity-10 border text-slate-500 border-opacity-20 rounded-lg px-4 py-3 text-black placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-smooth"
+            className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
             required
           />
         </div>
 
         {/* Confirm Password Input */}
         <div>
-          <label className="block text-slate-500 text-sm font-medium mb-2">
+          <label className="block text-[#B8C0CC] text-sm font-medium mb-2">
             Konfirmasi Password
           </label>
           <input
@@ -95,7 +95,7 @@ export default function Register() {
             value={formData.confirmPassword}
             onChange={handleChange}
             placeholder="••••••••"
-            className="w-full bg-white bg-opacity-10 border text-slate-500 border-opacity-20 rounded-lg px-4 py-3 text-black placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-smooth"
+            className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
             required
           />
         </div>
@@ -104,10 +104,10 @@ export default function Register() {
         <label className="flex items-start gap-2 cursor-pointer">
           <input
             type="checkbox"
-            className="w-4 h-4 rounded border-slate-400 mt-1"
+            className="w-4 h-4 rounded border-[#334E68]/70 bg-slate-900/70 mt-1"
             required
           />
-          <span className="text-slate-500 text-sm">
+          <span className="text-[#B8C0CC] text-sm">
             Saya setuju dengan syarat dan ketentuan penggunaan
           </span>
         </label>
@@ -116,18 +116,18 @@ export default function Register() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-smooth disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+          className="w-full bg-gradient-to-r from-[#7B57E0] to-[#8B6FE8] text-white font-semibold py-3 rounded-lg hover:from-[#8B6FE8] hover:to-[#9B7EF0] transition-smooth disabled:opacity-50 disabled:cursor-not-allowed mt-6"
         >
           {isLoading ? 'Memproses...' : 'Daftar'}
         </button>
       </form>
 
       {/* Login Link */}
-      <p className="text-center text-slate-500 text-sm mt-6">
+      <p className="text-center text-[#B8C0CC] text-sm mt-6">
         Sudah punya akun?{' '}
         <Link
           to="/login"
-          className="text-orange-400 font-semibold hover:text-orange-300 transition-smooth"
+          className="text-[#7B57E0] font-semibold hover:text-[#8B6FE8] transition-smooth"
         >
           Masuk di sini
         </Link>

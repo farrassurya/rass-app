@@ -8,10 +8,10 @@ import { ArrowUpRight, BadgeDollarSign, CalendarCheck2, CarFront, Sparkles, User
  */
 export default function StatCard({ data }) {
   const colorClasses = {
-    blue: 'from-sky-500/20 via-sky-400/10 to-cyan-400/5 border-sky-400/20',
-    purple: 'from-violet-500/20 via-violet-400/10 to-fuchsia-400/5 border-violet-400/20',
-    orange: 'from-orange-500/20 via-amber-400/10 to-rose-400/5 border-orange-400/20',
-    green: 'from-emerald-500/20 via-emerald-400/10 to-lime-400/5 border-emerald-400/20',
+    blue: 'from-[#5395CF]/20 via-[#5395CF]/10 to-[#5395CF]/5 border-[#5395CF]/20',
+    purple: 'from-[#7B57E0]/20 via-[#8B6FE8]/10 to-[#7B57E0]/5 border-[#7B57E0]/20',
+    orange: 'from-[#EFB047]/20 via-[#F5B84D]/10 to-[#F9837C]/5 border-[#EFB047]/20',
+    green: 'from-[#47A785]/20 via-[#47A785]/10 to-[#47A785]/5 border-[#47A785]/20',
   };
 
   const iconBg = {
@@ -39,7 +39,7 @@ export default function StatCard({ data }) {
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-3xl border bg-linear-to-br ${colorClasses[data.color]} p-px shadow-[0_18px_60px_rgba(2,6,23,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(2,6,23,0.35)]`}
+      className={`group relative overflow-hidden rounded-3xl border bg-gradient-to-br ${colorClasses[data.color]} p-px shadow-[0_18px_60px_rgba(2,6,23,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(2,6,23,0.35)]`}
     >
       <div className="relative h-full rounded-3xl border border-white/8 bg-slate-950/70 p-5 backdrop-blur-xl">
         <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/5 blur-2xl transition-opacity duration-300 group-hover:bg-white/10" />
@@ -58,7 +58,7 @@ export default function StatCard({ data }) {
           <p className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-[2.1rem]">{data.value}</p>
         </div>
 
-        <div className="mt-5 h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
+        <div className="mt-5 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
         <div className="mt-4 flex items-center justify-between text-xs text-slate-400">
           <span>Updated just now</span>

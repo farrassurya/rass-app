@@ -25,15 +25,15 @@ export default function ForgotPassword() {
     <div>
       {!submitted ? (
         <>
-          <h2 className="text-2xl font-bold text-yellow-600 mb-2">Lupa Password?</h2>
-          <p className="text-slate-500 text-sm mb-6">
+          <h2 className="text-2xl font-bold text-white mb-2">Lupa Password?</h2>
+          <p className="text-[#B8C0CC] text-sm mb-6">
             Masukkan email Anda untuk menerima link reset password
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Email Input */}
             <div>
-              <label className="block text-slate-500 text-sm font-medium mb-2">
+              <label className="block text-[#B8C0CC] text-sm font-medium mb-2">
                 Email Terdaftar
               </label>
               <input
@@ -41,7 +41,7 @@ export default function ForgotPassword() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="admin@bengkel.com"
-                className="w-full bg-white bg-opacity-10 border text-slate-500 border-opacity-20 rounded-lg px-4 py-3 text-black placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition-smooth"
+                className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
                 required
               />
             </div>
@@ -50,17 +50,17 @@ export default function ForgotPassword() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-smooth disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+              className="w-full bg-gradient-to-r from-[#7B57E0] to-[#8B6FE8] text-white font-semibold py-3 rounded-lg hover:from-[#8B6FE8] hover:to-[#9B7EF0] transition-smooth disabled:opacity-50 disabled:cursor-not-allowed mt-6"
             >
               {isLoading ? 'Mengirim...' : 'Kirim Link Reset'}
             </button>
           </form>
 
           {/* Back to Login */}
-          <p className="text-center text-slate-400 text-sm mt-6">
+          <p className="text-center text-[#B8C0CC] text-sm mt-6">
             <Link
               to="/login"
-              className="text-orange-400 font-semibold hover:text-orange-300 transition-smooth"
+              className="text-[#7B57E0] font-semibold hover:text-[#8B6FE8] transition-smooth"
             >
               Kembali ke login
             </Link>
@@ -69,14 +69,14 @@ export default function ForgotPassword() {
       ) : (
         <div className="text-center">
           <div className="mb-4 text-5xl">📧</div>
-          <h2 className="text-2xl font-bold text-yellow-600 mb-4">Email Terkirim!</h2>
-          <p className="text-slate-500 mb-6">
+          <h2 className="text-2xl font-bold text-white mb-4">Email Terkirim!</h2>
+          <p className="text-[#B8C0CC] mb-6">
             Kami telah mengirimkan link reset password ke {email}. Silakan cek
             email Anda.
           </p>
           <Link
             to="/login"
-            className="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-smooth"
+            className="inline-block bg-gradient-to-r from-[#7B57E0] to-[#8B6FE8] text-white font-semibold py-3 px-6 rounded-lg hover:from-[#8B6FE8] hover:to-[#9B7EF0] transition-smooth"
           >
             Kembali ke Login
           </Link>

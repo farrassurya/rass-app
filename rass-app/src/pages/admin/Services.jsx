@@ -1,6 +1,7 @@
 /**
  * SERVICES PAGE
  * Placeholder untuk halaman manajemen layanan servis
+ * UPDATE: Dark purple theme sesuai design system
  */
 export default function Services() {
   return (
@@ -9,17 +10,17 @@ export default function Services() {
         <h1 className="text-3xl font-bold text-white">
           Manajemen Layanan Servis
         </h1>
-        <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 transition-smooth shadow-md">
+        <button className="bg-gradient-to-r from-[#7B57E0] to-[#8B6FE8] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#8B6FE8] hover:to-[#9B7EF0] transition-smooth shadow-md">
           + Tambah Layanan
         </button>
       </div>
 
-      <div className="rounded-3xl border border-white/10 bg-slate-950/50 shadow-md p-12 text-center backdrop-blur-xl">
+      <div className="rounded-3xl border border-[#334E68]/70 bg-slate-950/70 shadow-md p-12 text-center backdrop-blur-xl">
         <p className="text-4xl mb-4">🔧</p>
         <h2 className="text-2xl font-bold text-white mb-2">
           Halaman Layanan Servis
         </h2>
-        <p className="text-slate-400">
+        <p className="text-[#B8C0CC]">
           Fitur manajemen layanan servis akan segera hadir
         </p>
       </div>

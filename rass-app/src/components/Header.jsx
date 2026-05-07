@@ -15,6 +15,7 @@ import {
  * HEADER COMPONENT
  * Best Practice: Pisahkan layout components menjadi file terpisah untuk reusability & maintainability
  * Props Pattern: Component menerima props untuk toggle sidebar di mobile
+ * UPDATE: Toolbar diperbarui dengan search bar yang lebih besar dan profil user yang lebih mirip Figma
  */
 export default function Header({ onToggleSidebar }) {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -30,55 +31,51 @@ export default function Header({ onToggleSidebar }) {
           >
             <Menu className="h-5 w-5" />
           </button>
-          <div className="flex items-center gap-3">
-            <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl bg-linear-to-br from-orange-500 via-amber-400 to-amber-600 text-slate-950 shadow-[0_18px_45px_rgba(249,115,22,0.35)] pulse-ring">
+          <div className="hidden items-center gap-3 rounded-3xl border border-white/10 bg-slate-950/70 px-4 py-2 shadow-[0_18px_45px_rgba(2,6,23,0.35)] lg:flex">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-linear-to-br from-[#7B57E0] via-[#8B6FE8] to-[#7B57E0]/80 text-white shadow-[0_18px_45px_rgba(123,87,224,0.35)] pulse-ring">
               <Wrench className="h-5 w-5" />
             </div>
             <div>
-              <p className="flex items-center gap-2 text-base font-semibold text-white sm:text-lg">
-                RevDrive <Sparkles className="h-4 w-4 text-orange-400" />
-              </p>
-              <p className="text-xs uppercase tracking-[0.35em] text-orange-300/80">
-                Bengkel Admin
-              </p>
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white">RevDrive</p>
+              <p className="text-[11px] uppercase tracking-[0.35em] text-[#B8C0CC]">Bengkel Admin</p>
             </div>
           </div>
         </div>
 
-        <div className="hidden flex-1 items-center justify-center px-4 lg:flex">
-          <div className="relative w-full max-w-2xl">
+        <div className="flex-1 px-4">
+          <div className="relative max-w-2xl mx-auto">
             <input
               type="text"
               placeholder="Search booking, customer, service..."
-              className="w-full rounded-full border border-white/10 bg-white/5 py-3 pl-12 pr-5 text-sm text-white placeholder:text-slate-400 shadow-[0_12px_40px_rgba(2,6,23,0.28)] outline-none transition-smooth focus:border-orange-400/50 focus:bg-white/10 focus:ring-2 focus:ring-orange-500/30"
+              className="w-full rounded-full border border-[#334E68]/70 bg-slate-950/75 py-3 pl-12 pr-5 text-sm text-white placeholder:text-[#B8C0CC] shadow-[0_12px_40px_rgba(2,6,23,0.28)] outline-none transition-smooth focus:border-[#7B57E0]/40 focus:bg-slate-900/80 focus:ring-2 focus:ring-[#7B57E0]/25"
             />
-            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+            <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#B8C0CC]" />
           </div>
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <button className="relative rounded-2xl border border-white/10 bg-white/5 p-3 text-white transition-smooth hover:-translate-y-0.5 hover:bg-white/10">
+          <button className="relative rounded-2xl border border-[#334E68]/70 bg-slate-950/60 p-3 text-white transition-smooth hover:-translate-y-0.5 hover:bg-slate-900/80">
             <Bell className="h-5 w-5" />
-            <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-orange-500 px-1 text-[10px] font-bold text-white shadow-lg">
+            <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#7B57E0] px-1 text-[10px] font-bold text-white shadow-lg">
               5
             </span>
           </button>
 
-          <button className="rounded-2xl border border-white/10 bg-white/5 p-3 text-white transition-smooth hover:-translate-y-0.5 hover:bg-white/10">
+          <button className="rounded-2xl border border-[#334E68]/70 bg-slate-950/60 p-3 text-white transition-smooth hover:-translate-y-0.5 hover:bg-slate-900/80">
             <Settings2 className="h-5 w-5" />
           </button>
 
           <div className="relative">
             <button
               onClick={() => setIsProfileOpen(!isProfileOpen)}
-              className="flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-3 py-2 transition-smooth hover:bg-white/10"
+              className="flex items-center gap-3 rounded-full border border-[#334E68]/70 bg-slate-950/60 px-3 py-2 transition-smooth hover:bg-slate-900/80"
             >
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-orange-400 to-amber-600 text-sm font-bold text-slate-950 shadow-[0_12px_30px_rgba(249,115,22,0.35)]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-linear-to-br from-[#7B57E0] to-[#8B6FE8] text-sm font-bold text-slate-950 shadow-[0_12px_30px_rgba(123,87,224,0.35)]">
                 AD
               </div>
               <div className="hidden text-left sm:block">
-                <p className="text-sm font-semibold leading-4 text-white">Admin</p>
-                <p className="text-[11px] text-slate-400">Workshop Owner</p>
+                <p className="text-sm font-semibold leading-4 text-white">Farrassuryaa</p>
+                <p className="text-[11px] text-slate-400">farrassurya12 @gmail.com</p>
               </div>
               <ChevronDown
                 className={`h-4 w-4 text-slate-300 transition-transform ${
@@ -91,9 +88,9 @@ export default function Header({ onToggleSidebar }) {
               <div className="absolute right-0 mt-3 w-56 overflow-hidden rounded-2xl border border-white/10 bg-slate-950/95 p-2 shadow-2xl backdrop-blur-xl">
                 <Link
                   to="/login"
-                  className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-200 transition-smooth hover:bg-white/5"
+                  className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm text-slate-200 transition-smooth hover:bg-slate-900/70"
                 >
-                  <LogOut className="h-4 w-4 text-orange-400" />
+                  <LogOut className="h-4 w-4 text-[#7B57E0]" />
                   Logout
                 </Link>
               </div>

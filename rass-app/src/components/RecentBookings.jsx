@@ -50,7 +50,7 @@ export default function RecentBookings({ bookings }) {
 
   return (
     <div className="overflow-hidden rounded-4xl border border-white/10 bg-slate-950/75 shadow-[0_18px_70px_rgba(2,6,23,0.35)] backdrop-blur-xl">
-      <div className="flex items-center justify-between border-b border-white/10 bg-linear-to-r from-white/10 to-transparent px-6 py-5">
+      <div className="flex items-center justify-between border-b border-white/10 bg-gradient-to-r from-white/10 to-transparent px-6 py-5">
         <div>
           <div className="flex items-center gap-2 text-xs uppercase tracking-[0.35em] text-orange-300/80">
             <Sparkles className="h-4 w-4" /> Live Operations

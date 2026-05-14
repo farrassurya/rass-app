@@ -140,6 +140,17 @@ export function CalendarCheck2(props) {
   );
 }
 
+export function Package2(props) {
+  return (
+    <IconBase {...props}>
+      <path d="M21 8.5 12 13 3 8.5" />
+      <path d="M3 8.5 12 4l9 4.5" />
+      <path d="M3 8.5V16L12 20l9-4V8.5" />
+      <path d="M12 13v7" />
+    </IconBase>
+  );
+}
+
 export function Users2(props) {
   return (
     <IconBase {...props}>

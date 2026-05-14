@@ -7,6 +7,8 @@ import Loading from './components/Loading';
 // LAZY LOADING - Teknik optimasi untuk load halaman hanya saat diakses
 // Penggunaan React.lazy() mencegah bundling semua halaman di awal, mengurangi ukuran file awal
 const Dashboard = lazy(() => import('./pages/admin/Dashboard'));
+const Product = lazy(() => import('./pages/admin/Product'));
+const ProductDetail = lazy(() => import('./pages/admin/ProductDetail'));
 const Booking = lazy(() => import('./pages/admin/Booking'));
 const Customers = lazy(() => import('./pages/admin/Customers'));
 const Services = lazy(() => import('./pages/admin/Services'));
@@ -36,6 +38,8 @@ function App() {
           {/* MainLayout: Layout utama dengan sidebar, header, footer untuk dashboard */}
           <Route element={<MainLayout />}>
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/products" element={<Product />} />
+            <Route path="/products/:productId" element={<ProductDetail />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/services" element={<Services />} />

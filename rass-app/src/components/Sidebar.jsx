@@ -4,6 +4,7 @@ import {
   ChevronLeft,
   LayoutDashboard,
   LogOut,
+  Package2,
   ShieldCheck,
   Users2,
   Wrench,
@@ -26,20 +27,27 @@ export default function Sidebar({ isOpen, onClose }) {
     },
     {
       id: 2,
+      label: 'Product',
+      path: '/products',
+      icon: Package2,
+      description: 'Daftar produk bengkel',
+    },
+    {
+      id: 3,
       label: 'Booking',
       path: '/booking',
       icon: CalendarCheck2,
       description: 'Reservasi servis',
     },
     {
-      id: 3,
+      id: 4,
       label: 'Pelanggan',
       path: '/customers',
       icon: Users2,
       description: 'Data pelanggan',
     },
     {
-      id: 4,
+      id: 5,
       label: 'Layanan',
       path: '/services',
       icon: Wrench,
@@ -58,7 +66,7 @@ export default function Sidebar({ isOpen, onClose }) {
       )}
 
       <aside
-        className={`fixed left-0 top-0 z-40 h-screen w-72 transform border-r border-white/10 bg-slate-950/90 text-white shadow-[0_24px_100px_rgba(2,6,23,0.55)] transition-transform duration-300 ease-out lg:static lg:translate-x-0 ${
+        className={`fixed left-0 top-0 z-40 h-screen w-72 transform border-r border-white/10 bg-slate-950/90 text-white shadow-[0_24px_100px_rgba(2,6,23,0.55)] transition-transform duration-300 ease-out lg:static lg:h-auto lg:min-h-full lg:self-stretch lg:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >

@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react';
-import productsData from '../../data/productsData.json';
 import SectionHeader from '../../components/SectionHeader.jsx';
+import productsData from '../../data/productsData.json';
 import ProductFilters from '../../components/ProductFilters.jsx';
-import ProductGrid from '../../components/ProductGrid.jsx';
 import StatusPill from '../../components/StatusPill.jsx';
+import ProductGrid from '../../components/ProductGrid.jsx';
 
 export default function Product() {
   const [searchTerm, setSearchTerm] = useState('');

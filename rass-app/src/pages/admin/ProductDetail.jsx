@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import productsData from '../../data/productsData.json';
-import { ArrowRight, BadgeCheck, CircleDollarSign } from '../../components/WorkshopIcons.jsx';
+import { ArrowRight, BadgeCheck, CircleDollarSign } 
+from '../../components/WorkshopIcons.jsx';
 
 function formatRupiah(value) {
   return new Intl.NumberFormat('id-ID', {

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PrimaryButton from '../../components/PrimaryButton.jsx';
 import AuthCard from '../../components/AuthCard.jsx';
 import FormField from '../../components/FormField.jsx';
 import CheckboxField from '../../components/CheckboxField.jsx';
-import PrimaryButton from '../../components/PrimaryButton.jsx';
 
 /**
  * LOGIN PAGE

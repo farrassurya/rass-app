@@ -1,21 +1,23 @@
-import dashboardData from '../data/dashboardData.json';
 import productsData from '../data/productsData.json';
 import SectionHeader from '../components/SectionHeader.jsx';
-import PanelCard from '../components/PanelCard.jsx';
-import StatusPill from '../components/StatusPill.jsx';
 import PrimaryButton from '../components/PrimaryButton.jsx';
-import SearchField from '../components/SearchField.jsx';
-import SelectField from '../components/SelectField.jsx';
 import AuthCard from '../components/AuthCard.jsx';
+import EmptyState from '../components/EmptyState.jsx';
 import FormField from '../components/FormField.jsx';
 import CheckboxField from '../components/CheckboxField.jsx';
-import EmptyState from '../components/EmptyState.jsx';
+import StatusPill from '../components/StatusPill.jsx';
+import dashboardData from '../data/dashboardData.json';
+
+import PanelCard from '../components/PanelCard.jsx';
+import SearchField from '../components/SearchField.jsx';
+import SelectField from '../components/SelectField.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import AnalyticsChart from '../components/AnalyticsChart.jsx';
 import CalendarWidget from '../components/CalendarWidget.jsx';
 import ColorSwatch from '../components/ColorSwatch.jsx';
 import IconTile from '../components/IconTile.jsx';
 import UserPreview from '../components/UserPreview.jsx';
+
 import { LayoutDashboard, Package2, Users2, Wrench } from '../components/WorkshopIcons.jsx';
 
 export default function Components() {

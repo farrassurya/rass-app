@@ -1,7 +1,7 @@
+import SectionHeader from '../../components/SectionHeader.jsx';
 import dashboardData from '../../data/dashboardData.json';
 import StatCard from '../../components/StatCard';
 import RecentBookings from '../../components/RecentBookings';
-import SectionHeader from '../../components/SectionHeader.jsx';
 import AnalyticsChart from '../../components/AnalyticsChart.jsx';
 import CalendarWidget from '../../components/CalendarWidget.jsx';
 

@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import AuthCard from '../../components/AuthCard.jsx';
+import FormField from '../../components/FormField.jsx';
+import CheckboxField from '../../components/CheckboxField.jsx';
+import PrimaryButton from '../../components/PrimaryButton.jsx';
 
 /**
  * REGISTER PAGE
@@ -31,98 +35,63 @@ export default function Register() {
   };
 
   return (
-    <div>
+    <AuthCard>
       <h2 className="text-2xl font-bold text-white mb-2">Buat Akun Baru</h2>
       <p className="text-[#B8C0CC] text-sm mb-6">Daftar untuk memulai</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Name Input */}
-        <div>
-          <label className="block text-[#B8C0CC] text-sm font-medium mb-2">
-            Nama Lengkap
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Nama Anda"
-            className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
-            required
-          />
-        </div>
+        <FormField
+          label="Nama Lengkap"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Nama Anda"
+          autoComplete="name"
+        />
 
-        {/* Email Input */}
-        <div>
-          <label className="block text-[#B8C0CC] text-sm font-medium mb-2">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="email@bengkel.com"
-            className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
-            required
-          />
-        </div>
+        <FormField
+          label="Email"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="email@bengkel.com"
+          autoComplete="email"
+        />
 
-        {/* Password Input */}
-        <div>
-          <label className="block text-[#B8C0CC] text-sm font-medium mb-2">
-            Password
-          </label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="••••••••"
-            className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
-            required
-          />
-        </div>
+        <FormField
+          label="Password"
+          name="password"
+          type="password"
+          value={formData.password}
+          onChange={handleChange}
+          placeholder="••••••••"
+          autoComplete="new-password"
+        />
 
-        {/* Confirm Password Input */}
-        <div>
-          <label className="block text-[#B8C0CC] text-sm font-medium mb-2">
-            Konfirmasi Password
-          </label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            placeholder="••••••••"
-            className="w-full bg-slate-900/70 border border-[#334E68]/70 rounded-lg px-4 py-3 text-white placeholder-[#B8C0CC] focus:outline-none focus:ring-2 focus:ring-[#7B57E0] focus:border-[#7B57E0] transition-smooth"
-            required
-          />
-        </div>
+        <FormField
+          label="Konfirmasi Password"
+          name="confirmPassword"
+          type="password"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          placeholder="••••••••"
+          autoComplete="new-password"
+        />
 
-        {/* Terms Agreement */}
-        <label className="flex items-start gap-2 cursor-pointer">
-          <input
-            type="checkbox"
-            className="w-4 h-4 rounded border-[#334E68]/70 bg-slate-900/70 mt-1"
-            required
-          />
-          <span className="text-[#B8C0CC] text-sm">
-            Saya setuju dengan syarat dan ketentuan penggunaan
-          </span>
-        </label>
+        <CheckboxField required>
+          Saya setuju dengan syarat dan ketentuan penggunaan
+        </CheckboxField>
 
-        {/* Submit Button */}
-        <button
+        <PrimaryButton
           type="submit"
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-[#7B57E0] to-[#8B6FE8] text-white font-semibold py-3 rounded-lg hover:from-[#8B6FE8] hover:to-[#9B7EF0] transition-smooth disabled:opacity-50 disabled:cursor-not-allowed mt-6"
+          className="mt-6 w-full"
         >
           {isLoading ? 'Memproses...' : 'Daftar'}
-        </button>
+        </PrimaryButton>
       </form>
 
-      {/* Login Link */}
       <p className="text-center text-[#B8C0CC] text-sm mt-6">
         Sudah punya akun?{' '}
         <Link
@@ -132,6 +101,6 @@ export default function Register() {
           Masuk di sini
         </Link>
       </p>
-    </div>
+    </AuthCard>
   );
 }

@@ -19,6 +19,7 @@ import Footer from '../components/Footer';
  */
 export default function MainLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
   return (
     <div className="relative min-h-screen overflow-hidden text-slate-100">
@@ -26,13 +27,18 @@ export default function MainLayout() {
       <div className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full bg-[#7B57E0]/10 blur-3xl" />
       <div className="pointer-events-none absolute right-0 top-40 h-80 w-80 rounded-full bg-[#5395CF]/10 blur-3xl" />
 
-      <div className="relative flex min-h-screen flex-col">
-        <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+      <div className="relative flex min-h-screen">
+        <Sidebar
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+          isCollapsed={sidebarCollapsed}
+        />
 
-        <div className="relative flex flex-1">
-          <Sidebar
-            isOpen={sidebarOpen}
-            onClose={() => setSidebarOpen(false)}
+        <div className="flex min-h-screen flex-1 flex-col overflow-hidden lg:pl-0">
+          <Header
+            onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+            onToggleSidebarCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
+            isSidebarCollapsed={sidebarCollapsed}
           />
 
           <main className="flex-1 overflow-auto">
@@ -43,9 +49,9 @@ export default function MainLayout() {
               </div>
             </div>
           </main>
-        </div>
 
-        <Footer />
+          <Footer />
+        </div>
       </div>
     </div>
   );

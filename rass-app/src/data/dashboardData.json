@@ -33,6 +33,28 @@
       "color": "green"
     }
   ],
+  "analytics": {
+    "yearly": [
+      { "label": "Jan", "revenue": 1200, "expenses": 700 },
+      { "label": "Feb", "revenue": 1800, "expenses": 1100 },
+      { "label": "Mar", "revenue": 2500, "expenses": 1600 },
+      { "label": "Apr", "revenue": 6700, "expenses": 3000 },
+      { "label": "May", "revenue": 4100, "expenses": 3300 },
+      { "label": "Jun", "revenue": 4600, "expenses": 2900 },
+      { "label": "Jul", "revenue": 2200, "expenses": 3600 },
+      { "label": "Aug", "revenue": 7100, "expenses": 4000 },
+      { "label": "Sep", "revenue": 6100, "expenses": 4300 },
+      { "label": "Oct", "revenue": 7600, "expenses": 4200 },
+      { "label": "Nov", "revenue": 5200, "expenses": 4500 },
+      { "label": "Dec", "revenue": 6800, "expenses": 5000 }
+    ],
+    "monthly": [
+      { "label": "W1", "revenue": 1200, "expenses": 760 },
+      { "label": "W2", "revenue": 1600, "expenses": 900 },
+      { "label": "W3", "revenue": 2100, "expenses": 1250 },
+      { "label": "W4", "revenue": 2400, "expenses": 1480 }
+    ]
+  },
   "recentBookings": [
     {
       "id": 1,

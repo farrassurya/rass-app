@@ -1,29 +1,12 @@
-/**
- * SERVICES PAGE
- * Placeholder untuk halaman manajemen layanan servis
- * UPDATE: Dark purple theme sesuai design system
- */
+import SectionHeader from '../../components/SectionHeader.jsx';
+import EmptyState from '../../components/EmptyState.jsx';
+import PrimaryButton from '../../components/PrimaryButton.jsx';
+
 export default function Services() {
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-white">
-          Manajemen Layanan Servis
-        </h1>
-        <button className="bg-gradient-to-r from-[#7B57E0] to-[#8B6FE8] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#8B6FE8] hover:to-[#9B7EF0] transition-smooth shadow-md">
-          + Tambah Layanan
-        </button>
-      </div>
-
-      <div className="rounded-3xl border border-[#334E68]/70 bg-slate-950/70 shadow-md p-12 text-center backdrop-blur-xl">
-        <p className="text-4xl mb-4">🔧</p>
-        <h2 className="text-2xl font-bold text-white mb-2">
-          Halaman Layanan Servis
-        </h2>
-        <p className="text-[#B8C0CC]">
-          Fitur manajemen layanan servis akan segera hadir
-        </p>
-      </div>
+      <SectionHeader eyebrow="Services" title="Manajemen Layanan Servis" action={<PrimaryButton>+ Tambah Layanan</PrimaryButton>} />
+      <EmptyState icon="🔧" title="Halaman Layanan Servis" description="Fitur manajemen layanan servis akan segera hadir" />
     </div>
   );
 }

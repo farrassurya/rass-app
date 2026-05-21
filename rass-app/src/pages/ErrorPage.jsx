@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import PanelCard from '../components/PanelCard.jsx';
+import PrimaryButton from '../components/PrimaryButton.jsx';
 
 /**
  * ERROR PAGE (404 NOT FOUND)
@@ -16,7 +18,7 @@ export default function ErrorPage() {
       </div>
 
       {/* Error Container */}
-      <div className="text-center z-10 max-w-md">
+      <PanelCard className="z-10 max-w-md p-8 text-center">
         {/* Error Code */}
         <div className="mb-6">
           <p className="text-9xl font-bold text-transparent bg-gradient-to-r from-[#7B57E0] to-[#5395CF] bg-clip-text">
@@ -41,18 +43,10 @@ export default function ErrorPage() {
         <div className="space-y-3 mb-8">
           <p className="text-white text-sm font-semibold">Kembali ke:</p>
           <div className="flex flex-col gap-3">
-            <Link
-              to="/dashboard"
-              className="bg-gradient-to-r from-[#7B57E0] to-[#8B6FE8] text-white font-semibold py-3 px-6 rounded-lg hover:from-[#8B6FE8] hover:to-[#9B7EF0] transition-smooth shadow-lg"
-            >
-              Dashboard
-            </Link>
-            <Link
-              to="/login"
-              className="bg-slate-950/70 text-white font-semibold py-3 px-6 rounded-lg hover:bg-slate-900/70 transition-smooth border border-[#334E68]/70"
-            >
+            <PrimaryButton to="/dashboard">Dashboard</PrimaryButton>
+            <PrimaryButton to="/login" variant="secondary">
               Halaman Login
-            </Link>
+            </PrimaryButton>
           </div>
         </div>
 
@@ -60,7 +54,7 @@ export default function ErrorPage() {
         <p className="text-[#B8C0CC] text-sm">
           Jika masalah terus berlanjut, silakan hubungi support kami.
         </p>
-      </div>
+      </PanelCard>
     </div>
   );
 }

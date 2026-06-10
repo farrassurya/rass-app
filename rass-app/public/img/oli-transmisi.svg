@@ -1,0 +1,19 @@
+<svg width="800" height="520" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Oli transmisi">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#112432"/>
+      <stop offset="100%" stop-color="#214F63"/>
+    </linearGradient>
+    <linearGradient id="oil2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9DE1FF"/>
+      <stop offset="100%" stop-color="#56C5F8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="28" fill="url(#bg2)"/>
+  <rect x="250" y="115" width="300" height="300" rx="26" fill="#0F1B2C" stroke="#4FA9C7" stroke-width="4"/>
+  <rect x="315" y="72" width="170" height="52" rx="14" fill="#16334A"/>
+  <rect x="286" y="188" width="228" height="160" rx="18" fill="url(#oil2)" opacity="0.95"/>
+  <text x="400" y="248" fill="#0A2233" font-size="30" text-anchor="middle" font-family="Segoe UI, Arial">ShiftMax</text>
+  <text x="400" y="286" fill="#0A2233" font-size="34" text-anchor="middle" font-family="Segoe UI, Arial" font-weight="700">ATF</text>
+  <text x="400" y="462" fill="#D7EEF7" font-size="28" text-anchor="middle" font-family="Segoe UI, Arial">Oli Transmisi</text>
+</svg>

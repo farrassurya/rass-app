@@ -1,0 +1,19 @@
+<svg width="800" height="520" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Oli sintetik">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#171A25"/>
+      <stop offset="100%" stop-color="#2C3263"/>
+    </linearGradient>
+    <linearGradient id="oil1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6C556"/>
+      <stop offset="100%" stop-color="#E78A2F"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="28" fill="url(#bg1)"/>
+  <rect x="260" y="120" width="280" height="290" rx="24" fill="#101522" stroke="#5A67A8" stroke-width="4"/>
+  <rect x="320" y="78" width="160" height="52" rx="16" fill="#1D2540"/>
+  <rect x="292" y="192" width="216" height="148" rx="16" fill="url(#oil1)" opacity="0.92"/>
+  <text x="400" y="240" fill="#111827" font-size="28" text-anchor="middle" font-family="Segoe UI, Arial">RevOil</text>
+  <text x="400" y="276" fill="#111827" font-size="38" text-anchor="middle" font-family="Segoe UI, Arial" font-weight="700">5W-30</text>
+  <text x="400" y="460" fill="#CBD5E1" font-size="28" text-anchor="middle" font-family="Segoe UI, Arial">Oli Mesin Sintetik</text>
+</svg>

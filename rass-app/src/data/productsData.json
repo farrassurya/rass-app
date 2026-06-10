@@ -1,0 +1,110 @@
+[
+  {
+    "id": "oli-sintetik-5w30",
+    "name": "Oli Mesin Sintetik 5W-30",
+    "category": "Pelumas",
+    "brand": "RevOil Pro",
+    "price": 325000,
+    "stock": 42,
+    "unit": "botol 4L",
+    "image": "/img/oli-sintetik.svg",
+    "shortDescription": "Performa tinggi untuk mesin bensin modern dengan perlindungan suhu ekstrem.",
+    "description": "Oli mesin full synthetic dengan stabilitas viskositas tinggi, membantu menjaga kebersihan mesin dan memperpanjang umur komponen internal.",
+    "specifications": [
+      "SAE 5W-30",
+      "API SP",
+      "Volume 4 liter",
+      "Cocok untuk mesin bensin dan turbo ringan"
+    ]
+  },
+  {
+    "id": "oli-transmisi-atf",
+    "name": "Oli Transmisi ATF",
+    "category": "Pelumas",
+    "brand": "ShiftMax",
+    "price": 185000,
+    "stock": 30,
+    "unit": "botol 1L",
+    "image": "/img/oli-transmisi.svg",
+    "shortDescription": "Perpindahan gigi halus untuk transmisi otomatis harian.",
+    "description": "Fluida transmisi otomatis dengan formula anti-oksidasi yang membantu mengurangi panas berlebih dan menjaga respons perpindahan gigi tetap stabil.",
+    "specifications": [
+      "ATF Dexron III",
+      "Perlindungan anti-foaming",
+      "Volume 1 liter",
+      "Direkomendasikan untuk transmisi otomatis"
+    ]
+  },
+  {
+    "id": "coolant-radiator-longlife",
+    "name": "Coolant Radiator Long Life",
+    "category": "Pendingin",
+    "brand": "CoolFlow",
+    "price": 95000,
+    "stock": 55,
+    "unit": "botol 1L",
+    "image": "/img/coolant-radiator.svg",
+    "shortDescription": "Menjaga temperatur mesin stabil dan anti karat untuk sistem pendingin.",
+    "description": "Coolant siap pakai dengan proteksi anti-karat untuk radiator alumunium, membantu mencegah overheat pada penggunaan stop-and-go.",
+    "specifications": [
+      "Ready to use",
+      "Anti karat dan anti kerak",
+      "Titik didih tinggi",
+      "Volume 1 liter"
+    ]
+  },
+  {
+    "id": "filter-oli-performance",
+    "name": "Filter Oli Performance",
+    "category": "Spare Part",
+    "brand": "PureFilter",
+    "price": 78000,
+    "stock": 67,
+    "unit": "pcs",
+    "image": "/img/filter-oli.svg",
+    "shortDescription": "Menyaring partikel halus untuk menjaga sirkulasi oli tetap bersih.",
+    "description": "Filter oli dengan media filtrasi berlapis yang menangkap partikel kontaminan lebih baik sehingga oli lebih bersih dan pelumasan tetap optimal.",
+    "specifications": [
+      "Efisiensi filtrasi tinggi",
+      "Material anti bocor",
+      "Cocok untuk servis berkala",
+      "Instalasi cepat"
+    ]
+  },
+  {
+    "id": "kampas-rem-ceramic",
+    "name": "Kampas Rem Ceramic",
+    "category": "Spare Part",
+    "brand": "BrakeForce",
+    "price": 265000,
+    "stock": 24,
+    "unit": "set",
+    "image": "/img/kampas-rem.svg",
+    "shortDescription": "Pengereman stabil, minim bunyi, dan tahan temperatur tinggi.",
+    "description": "Kampas rem berbasis ceramic compound untuk pengereman harian dan perjalanan jauh, dengan karakter debu rem lebih rendah.",
+    "specifications": [
+      "Ceramic compound",
+      "Noise reduction shim",
+      "Resistensi panas tinggi",
+      "Untuk roda depan"
+    ]
+  },
+  {
+    "id": "aki-mobil-maintenance-free",
+    "name": "Aki Mobil Maintenance Free",
+    "category": "Kelistrikan",
+    "brand": "VoltPrime",
+    "price": 920000,
+    "stock": 15,
+    "unit": "unit",
+    "image": "/img/aki-mobil.svg",
+    "shortDescription": "Daya starter kuat dan minim perawatan untuk pemakaian harian.",
+    "description": "Aki tipe maintenance free dengan kapasitas arus awal tinggi yang dirancang untuk mendukung kebutuhan elektrikal kendaraan modern.",
+    "specifications": [
+      "Kapasitas 45 Ah",
+      "CCA tinggi untuk starter cepat",
+      "Maintenance free",
+      "Garansi resmi 12 bulan"
+    ]
+  }
+]

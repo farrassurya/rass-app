@@ -1,0 +1,257 @@
+:root {
+  --navy: #20364d;
+  --gold: #e19a09;
+  --gold-soft: #f4c665;
+  --surface: #f5f5f5;
+  --ink: #132739;
+  --muted: #5f6f7d;
+}
+
+.biodata-page {
+  min-height: 100svh;
+  padding: 34px 20px 52px;
+  box-sizing: border-box;
+  background:
+    linear-gradient(180deg, #f2efe7 0 320px, #eceff3 320px 100%),
+    radial-gradient(circle at 90% 95%, #d4ecff 0, transparent 36%);
+}
+
+.biodata-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 22px;
+}
+
+.biodata-header h1 {
+  margin: 0;
+  color: var(--navy);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.header-line {
+  display: inline-block;
+  width: 88px;
+  height: 4px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold), #c17c00);
+}
+
+.biodata-card {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  border-radius: 28px;
+  background: var(--surface);
+  border: 1px solid #dedede;
+  overflow: hidden;
+  box-shadow: 0 22px 50px rgba(8, 23, 37, 0.12);
+}
+
+.biodata-ribbon {
+  padding: 20px 24px;
+  text-align: center;
+  background:
+    linear-gradient(145deg, #e59d08, #d58f07),
+    linear-gradient(45deg, transparent 55%, rgba(255, 255, 255, 0.14) 56%);
+}
+
+.biodata-ribbon p {
+  display: inline-block;
+  margin: 0;
+  background: linear-gradient(145deg, #eeb84e, #d89a2a);
+  color: #fff;
+  font-size: clamp(1rem, 1.8vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 12px 28px;
+  border-radius: 999px;
+  box-shadow: 0 10px 20px rgba(114, 69, 0, 0.28);
+}
+
+.biodata-content {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.biodata-left {
+  display: grid;
+  gap: 18px;
+}
+
+.foto-wrapper {
+  position: relative;
+}
+
+.foto-profil {
+  width: 240px;
+  max-width: 100%;
+  height: 310px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 0 12px 26px rgba(11, 31, 49, 0.2);
+  background: #d9d9d9;
+}
+
+.foto-profil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.foto-badge {
+  position: absolute;
+  right: -10px;
+  bottom: -14px;
+  background: linear-gradient(145deg, #f0ac1b, #d28a05);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  border: 3px solid #ffffff;
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.tag-list span {
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  flex: 0 1 auto;
+  border: none;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.02em;
+}
+
+.tag-mahasiswa {
+  background: linear-gradient(135deg, #e59d08, #d68a07);
+}
+
+.tag-batch {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.tag-location {
+  background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.biodata-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.biodata-item {
+  background: #ffffff;
+  border: 1px solid #dfe2e6;
+  border-radius: 16px;
+  padding: 14px 14px;
+  text-align: left;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.biodata-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.biodata-item h3 {
+  margin: 0 0 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.biodata-item p {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(0.85rem, 1vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.biodata-item-wide {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1080px) {
+  .biodata-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .biodata-left {
+    justify-items: center;
+  }
+
+  .foto-profil {
+    width: min(440px, 100%);
+    height: 460px;
+  }
+
+  .tag-list {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .biodata-page {
+    padding: 22px 12px 34px;
+  }
+
+  .biodata-card {
+    border-radius: 18px;
+  }
+
+  .biodata-ribbon {
+    padding: 20px 14px;
+  }
+
+  .biodata-ribbon p {
+    width: 100%;
+    padding: 12px 16px;
+    box-sizing: border-box;
+  }
+
+  .biodata-content {
+    padding: 18px;
+  }
+
+  .foto-profil {
+    height: 390px;
+    border-radius: 16px;
+  }
+
+  .foto-badge {
+    right: 8px;
+    bottom: 8px;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+
+  .biodata-grid {
+    grid-template-columns: 1fr;
+  }
+}

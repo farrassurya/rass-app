@@ -1,0 +1,16 @@
+<svg width="800" height="520" viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aki mobil">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="28" fill="url(#bg6)"/>
+  <rect x="210" y="166" width="380" height="210" rx="20" fill="#334155"/>
+  <rect x="246" y="206" width="306" height="130" rx="12" fill="#0F172A"/>
+  <rect x="280" y="138" width="80" height="28" rx="8" fill="#EF4444"/>
+  <rect x="440" y="138" width="80" height="28" rx="8" fill="#22C55E"/>
+  <text x="400" y="255" fill="#E2E8F0" font-size="34" text-anchor="middle" font-family="Segoe UI, Arial" font-weight="700">12V</text>
+  <text x="400" y="292" fill="#94A3B8" font-size="24" text-anchor="middle" font-family="Segoe UI, Arial">Maintenance Free</text>
+  <text x="400" y="452" fill="#E2E8F0" font-size="28" text-anchor="middle" font-family="Segoe UI, Arial">Aki Mobil</text>
+</svg>

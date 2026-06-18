@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Search as SearchIcon } from './WorkshopIcons.jsx';
 
 export default function SearchField({
@@ -8,9 +9,24 @@ export default function SearchField({
   clearable = false,
   onClear,
 }) {
+  // 1. Membuat reference untuk elemen input
+  const inputRef = useRef(null);
+
+  // 2. Handler saat tombol 'x' diklik
+  const handleClear = () => {
+    if (onClear) {
+      onClear(); // Menjalankan fungsi clear bawaan dari props kamu
+    }
+    // Mengembalikan fokus kursor ke input secara programatik lewat DOM reference
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
   return (
     <div className={`relative ${className}`}>
       <input
+        ref={inputRef} // 3. Memasang reference ke elemen input HTML
         type="text"
         value={value}
         onChange={onChange}
@@ -21,7 +37,7 @@ export default function SearchField({
       {clearable && value ? (
         <button
           type="button"
-          onClick={onClear}
+          onClick={handleClear} // 4. Mengubah onClick langsung ke handler baru
           className="absolute right-3 top-1/2 -translate-y-1/2 text-sm font-semibold text-slate-400 transition-smooth hover:text-white"
           aria-label="Clear search"
         >

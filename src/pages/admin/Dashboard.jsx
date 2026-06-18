@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import SectionHeader from '../../components/SectionHeader.jsx';
 import dashboardData from '../../data/dashboardData.json';
 import StatCard from '../../components/StatCard';
@@ -11,9 +12,23 @@ import CalendarWidget from '../../components/CalendarWidget.jsx';
  * Data JSON: Import data dari JSON file untuk display statistic dan bookings
  * useMemo: Optimasi performance dengan memoize calculated values
  * Responsive & Grid Design: Menggunakan Tailwind grid untuk responsive layout
+ * useEffect: Mengelola efek samping manipulasi title document browser
  */
 export default function Dashboard() {
   const { stats, analytics, recentBookings } = dashboardData;
+
+  useEffect(() => {
+
+    const originalTitle = document.title;
+    
+    // Mengubah judul tab saat komponen Dashboard dimuat (mounted)
+    document.title = "RevDrive - Admin Dashboard";
+
+    // Fungsi pembersih (cleanup function) saat user meninggalkan halaman (unmounted)
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []); // Array dependensi kosong agar efek ini hanya berjalan 1 kali saat halaman dibuka
 
   return (
     <div className="space-y-6 float-in">

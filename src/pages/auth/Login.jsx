@@ -21,12 +21,43 @@ export default function Login() {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulasi login - dalam praktik nyata, hubungkan ke backend
-    setTimeout(() => {
-      console.log('Login dengan:', { email, password });
+    // P14: Mengganti setTimeout dummy dengan fetch pengecekan data ke database Supabase secara real-time
+    try {
+      // Menyusun query parameter untuk mencocokkan email dan password secara eksplisit
+      const targetUrl = `https://ecmgvafbdasnynlxwwjb.supabase.co/rest/v1/users?email=eq.${encodeURIComponent(email)}&password=eq.${encodeURIComponent(password)}`;
+      
+      const response = await fetch(targetUrl, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': 'sb_publishable_c5VmxN30Z6pMC1_clJjH8A_Yg_DACrB',
+          'Authorization': 'Bearer sb_publishable_c5VmxN30Z6pMC1_clJjH8A_Yg_DACrB'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Gagal terhubung ke server login.');
+      }
+
+      const users = await response.json();
+
+      // P14: Jika array kosong, berarti email atau password salah
+      if (users.length === 0) {
+        alert('Email atau Password salah! Silakan periksa kembali akun Anda.');
+        return;
+      }
+
+      // P14: Jika user ditemukan, simpan data session sederhana ke localStorage (berguna untuk validasi CRUD halaman admin nanti)
+      localStorage.setItem('userSession', JSON.stringify(users[0]));
+
+      alert(`Selamat datang kembali, ${users[0].name}!`);
+      navigate('/dashboard'); // P14: Redirect ke halaman utama setelah login sukses
+    } catch (err) {
+      console.error('Login Error:', err);
+      alert(`Login Gagal: ${err.message}`);
+    } finally {
       setIsLoading(false);
-      navigate('/dashboard');
-    }, 1000);
+    }
   };
 
   return (

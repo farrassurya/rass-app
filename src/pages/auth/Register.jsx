@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // P14: Menambahkan useNavigate untuk redirect halaman setelah sukses register
 import AuthCard from '../../components/AuthCard.jsx';
 import FormField from '../../components/FormField.jsx';
 import CheckboxField from '../../components/CheckboxField.jsx';
@@ -17,21 +17,56 @@ export default function Register() {
     confirmPassword: '',
   });
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate(); // P14: Inisialisasi fungsi navigate
 
+  // P14: Fungsi untuk menangani perubahan input pada form secara dinamis
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // P14: Fungsi submit untuk mendaftarkan user langsung menembak REST API Supabase (Bypass SDK Client)
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // P14: Validasi kecocokan password sebelum mengirim data ke server
+    if (formData.password !== formData.confirmPassword) {
+      alert('Password dan Konfirmasi Password tidak cocok!');
+      return;
+    }
+
     setIsLoading(true);
 
-    setTimeout(() => {
-      console.log('Register:', formData);
-      setIsLoading(false);
+    // P14: Menggunakan fetch native direct ke endpoint API Supabase untuk menghindari error network/CORS di browser
+    try {
+      const response = await fetch('https://ecmgvafbdasnynlxwwjb.supabase.co/rest/v1/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': 'sb_publishable_c5VmxN30Z6pMC1_clJjH8A_Yg_DACrB',
+          'Authorization': 'Bearer sb_publishable_c5VmxN30Z6pMC1_clJjH8A_Yg_DACrB'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+          role: 'user'
+        })
+      });
+
+      // P14: Lempar error jika status response tidak bernilai OK (200-299)
+      if (!response.ok) {
+        throw new Error('Gagal terhubung atau menyimpan data ke database Supabase.');
+      }
+
       alert('Registrasi berhasil! Silakan login.');
-    }, 1000);
+      navigate('/login'); // P14: Redirect otomatis pengguna langsung ke halaman Login
+    } catch (err) {
+      console.error('Register Error:', err);
+      alert(`Registrasi Gagal: ${err.message}`);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

@@ -18,6 +18,7 @@ const Register = lazy(() => import('./pages/auth/Register'));
 const ForgotPassword = lazy(() => import('./pages/auth/ForgotPassword'));
 const ResetPassword = lazy(() => import('./pages/auth/ResetPassword'));
 const ErrorPage = lazy(() => import('./pages/ErrorPage'));
+const Landing = lazy(() => import('./pages/Landing'));
 
 // Suspense Fallback - UI yang ditampilkan saat komponen lazy loading sedang diload
 // Ini mencegah blank screen sambil file component di-download dari server
@@ -47,9 +48,10 @@ function App() {
             <Route path="/components" element={<Components />} />
           </Route>
 
+          {/* ========== PUBLIC ROUTES ========== */}
+          <Route path="/" element={<Landing />} />
+
           {/* ========== ERROR ROUTES ========== */}
-          {/* Redirect index ke dashboard */}
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
           {/* 404 Not Found Page */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>

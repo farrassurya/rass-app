@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
 
@@ -8,40 +8,9 @@ export default function Landing() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formMessage, setFormMessage] = useState({ type: 'idle', text: '' });
-  const [activeUsers, setActiveUsers] = useState(null);
-  const [isLoadingStats, setIsLoadingStats] = useState(true);
-  const [statsError, setStatsError] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function loadStats() {
-      setIsLoadingStats(true);
-      setStatsError('');
-
-      const { count, error } = await supabase.from('users').select('id', { count: 'exact', head: true });
-
-      if (!isMounted) return;
-
-      if (error) {
-        setStatsError('Data live stats belum bisa dimuat.');
-        setActiveUsers(null);
-      } else {
-        setActiveUsers(count ?? 0);
-      }
-
-      setIsLoadingStats(false);
-    }
-
-    loadStats();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -65,24 +34,23 @@ export default function Landing() {
     setFormMessage({ type: 'loading', text: 'Menyimpan data ke Supabase...' });
 
     try {
-      const { count, error: duplicateError } = await supabase
-        .from('leads')
-        .select('id', { count: 'exact', head: true })
-        .ilike('email', normalizedEmail);
-
-      if (duplicateError) {
-        throw duplicateError;
-      }
-
-      if ((count ?? 0) > 0) {
-        setSubmitted(false);
-        setFormMessage({ type: 'error', text: 'Email ini sudah terdaftar. Gunakan email lain.' });
-        return;
-      }
-
-      const { error } = await supabase.from('leads').insert([{ email: normalizedEmail, source: 'landing_page' }]);
+      const { error } = await supabase.from('leads').insert([{ email: normalizedEmail }]);
 
       if (error) {
+        if (error.code === '23505') {
+          setSubmitted(false);
+          setFormMessage({ type: 'error', text: 'Email ini sudah terdaftar. Gunakan email lain.' });
+          return;
+        }
+
+        if (error.code === '42501' || /row-level security|permission denied/i.test(error.message ?? '')) {
+          throw new Error('Supabase menolak insert karena policy RLS belum mengizinkan akses insert ke tabel leads.');
+        }
+
+        if (error.code === '42P01' || /relation .* does not exist/i.test(error.message ?? '')) {
+          throw new Error('Tabel leads belum ada di database Supabase.');
+        }
+
         throw error;
       }
 
@@ -90,7 +58,7 @@ export default function Landing() {
       setEmail('');
       setFormMessage({ type: 'success', text: 'Email berhasil disimpan ke tabel leads di Supabase.' });
     } catch (error) {
-      console.error('Landing form submit error:', error);
+      console.error('Error Supabase:', error);
       setSubmitted(false);
       setFormMessage({
         type: 'error',
@@ -163,7 +131,7 @@ export default function Landing() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div className="space-y-6">
               <p className="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-slate-300">
-                CRM System PRD v3
+                CRM System Bengkel
               </p>
               <div className="space-y-4">
                 <h1 className="max-w-2xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -266,27 +234,14 @@ export default function Landing() {
 
           <div className="rounded-[1.75rem] border border-white/10 bg-slate-950/80 p-8 shadow-[0_24px_80px_rgba(2,6,23,0.38)] backdrop-blur-md">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Live Stats</p>
-            <h3 className="mt-3 text-xl font-semibold text-white">Pengguna aktif saat ini</h3>
+            <h3 className="mt-3 text-xl font-semibold text-white">Integrasi leads aktif</h3>
 
             <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-6">
-              {isLoadingStats ? (
-                <div className="space-y-3" aria-live="polite">
-                  <div className="h-3 w-32 rounded-full bg-white/10 shimmer" />
-                  <div className="h-10 w-40 rounded-2xl bg-white/10 shimmer" />
-                  <p className="text-sm text-slate-400">Mengambil data live dari Supabase...</p>
-                </div>
-              ) : statsError ? (
-                <div className="space-y-3" aria-live="polite">
-                  <p className="text-sm font-medium text-amber-200">{statsError}</p>
-                  <p className="text-sm text-slate-400">Silakan periksa tabel users dan policy read di Supabase.</p>
-                </div>
-              ) : (
-                <div className="space-y-2">
-                  <p className="text-sm text-slate-400">Total dari tabel users</p>
-                  <p className="text-5xl font-semibold tracking-tight text-white">{activeUsers}</p>
-                  <p className="text-sm text-emerald-200">Sinkron dengan data database Supabase.</p>
-                </div>
-              )}
+              <div className="space-y-2">
+                <p className="text-sm text-slate-400">Halaman ini sekarang hanya melakukan insert email ke tabel leads.</p>
+                <p className="text-sm text-slate-400">Tidak ada lagi request SELECT ke tabel users dari Landing.</p>
+                <p className="text-sm text-emerald-200">Status error Supabase bisa dibaca langsung dari console browser.</p>
+              </div>
             </div>
           </div>
         </section>
@@ -366,7 +321,7 @@ export default function Landing() {
                   CRM
                 </span>
                 <div>
-                  <p className="text-sm font-semibold text-white">CRM Platform</p>
+                  <p className="text-sm font-semibold text-white">RevDrive Autosolution</p>
                   <p className="text-xs uppercase tracking-[0.32em] text-slate-400">Customer relationship system</p>
                 </div>
               </div>
@@ -393,13 +348,13 @@ export default function Landing() {
             <div>
               <p className="text-sm font-semibold text-white">Status</p>
               <p className="mt-4 text-sm leading-6 text-slate-400">
-                Landing page PRD v3 selesai dengan navbar, pricing, footer, dan submit lead ke Supabase.
+                Landing Page selesai dengan navbar, pricing, footer, dan submit lead ke Supabase.
               </p>
             </div>
           </div>
 
           <div className="mt-8 border-t border-white/10 pt-5 text-sm text-slate-500">
-            © 2026 CRM Platform. All rights reserved.
+            © 2026 RevDrive Autosolution. All rights reserved.
           </div>
         </footer>
       </div>

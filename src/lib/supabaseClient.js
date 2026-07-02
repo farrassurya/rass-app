@@ -1,8 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Langsung ditembak di sini biar ga pusing mikirin .env.local yang ga kebaca
-const supabaseUrl = 'https://ecmgvafbdasnylxwwjb.supabase.co';
-const supabaseAnonKey = 'sb_publishable_c5VmxN30Z6pMC1_clJjH8A_Yg_DACrB';
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 

@@ -5,7 +5,6 @@ import {
   LayoutDashboard,
   LogOut,
   Package2,
-  Sparkles,
   Users2,
   Wrench,
 } from './WorkshopIcons.jsx';
@@ -52,13 +51,6 @@ export default function Sidebar({ isOpen, onClose, isCollapsed }) {
       path: '/services',
       icon: Wrench,
       description: 'Jenis layanan servis',
-    },
-    {
-      id: 6,
-      label: 'Components',
-      path: '/components',
-      icon: Sparkles,
-      description: 'Playground reusable component',
     },
   ];
 

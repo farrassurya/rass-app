@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   BadgeCheck,
   CalendarDays,
@@ -7,14 +8,69 @@ import {
   Hourglass,
   Sparkles,
 } from './WorkshopIcons.jsx';
+import { supabase } from '../lib/supabaseClient';
 
 /**
  * RECENT BOOKINGS COMPONENT
- * Components & Props: Menerima array bookings via props
  * Active State: Status booking ditampilkan dengan warna berbeda (completed, in-progress, pending)
  * Responsive Design: Table yang responsive untuk mobile dan desktop
  */
 export default function RecentBookings({ bookings }) {
+  const [liveBookings, setLiveBookings] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadBookings() {
+      setIsLoading(true);
+
+      const { data, error } = await supabase
+        .from('bookings')
+        .select('id, customer_name, vehicle_type, service_type, preferred_date, preferred_time, status, estimated_amount, created_at')
+        .order('created_at', { ascending: false })
+        .limit(10);
+
+      if (!isMounted) {
+        return;
+      }
+
+      if (error) {
+        setLiveBookings([]);
+        setIsLoading(false);
+        return;
+      }
+
+      const mappedBookings = (data ?? []).map((booking) => ({
+        id: booking.id,
+        customerName: booking.customer_name,
+        vehicleType: booking.vehicle_type,
+        serviceType: booking.service_type,
+        date: booking.preferred_date,
+        time: booking.preferred_time,
+        status: booking.status,
+        amount: booking.estimated_amount
+          ? new Intl.NumberFormat('id-ID', {
+              style: 'currency',
+              currency: 'IDR',
+              maximumFractionDigits: 0,
+            }).format(Number(booking.estimated_amount))
+          : 'Belum ada estimasi',
+      }));
+
+      setLiveBookings(mappedBookings);
+      setIsLoading(false);
+    }
+
+    loadBookings();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const rows = liveBookings;
+
   const getStatusStyles = (status) => {
     const styles = {
       completed: {
@@ -50,7 +106,7 @@ export default function RecentBookings({ bookings }) {
 
   return (
     <div className="overflow-hidden rounded-4xl border border-white/10 bg-slate-950/75 shadow-[0_18px_70px_rgba(2,6,23,0.35)] backdrop-blur-xl">
-      <div className="flex items-center justify-between border-b border-white/10 bg-gradient-to-r from-white/10 to-transparent px-6 py-5">
+      <div className="flex items-center justify-between border-b border-white/10 bg-linear-to-r from-white/10 to-transparent px-6 py-5">
         <div>
           <div className="flex items-center gap-2 text-xs uppercase tracking-[0.35em] text-orange-300/80">
             <Sparkles className="h-4 w-4" /> Live Operations
@@ -79,49 +135,63 @@ export default function RecentBookings({ bookings }) {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking, idx) => {
-              const statusStyles = getStatusStyles(booking.status);
-              const StatusIcon = statusStyles.icon;
+            {isLoading && rows.length === 0 ? (
+              <tr>
+                <td className="border-t border-white/10 px-6 py-6 text-sm text-slate-300" colSpan={6}>
+                  Memuat booking terbaru...
+                </td>
+              </tr>
+            ) : rows.length === 0 ? (
+              <tr>
+                <td className="border-t border-white/10 px-6 py-6 text-sm text-slate-300" colSpan={6}>
+                  Belum ada booking yang masuk.
+                </td>
+              </tr>
+            ) : (
+              rows.map((booking, idx) => {
+                const statusStyles = getStatusStyles(booking.status);
+                const StatusIcon = statusStyles.icon;
 
-              return (
-                <tr
-                  key={booking.id}
-                  className={`transition-smooth ${idx % 2 === 0 ? 'bg-white/5' : 'bg-white/10'} hover:bg-white/15`}
-                >
-                  <td className="border-t border-white/10 px-6 py-5">
-                    <p className="font-semibold text-white">{booking.customerName}</p>
-                    <p className="mt-1 text-xs text-slate-400">{booking.date}</p>
-                  </td>
-                  <td className="border-t border-white/10 px-6 py-5">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-orange-300 ring-1 ring-white/10">
-                        <CarFront className="h-4 w-4" />
+                return (
+                  <tr
+                    key={booking.id}
+                    className={`transition-smooth ${idx % 2 === 0 ? 'bg-white/5' : 'bg-white/10'} hover:bg-white/15`}
+                  >
+                    <td className="border-t border-white/10 px-6 py-5">
+                      <p className="font-semibold text-white">{booking.customerName}</p>
+                      <p className="mt-1 text-xs text-slate-400">{booking.date}</p>
+                    </td>
+                    <td className="border-t border-white/10 px-6 py-5">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-orange-300 ring-1 ring-white/10">
+                          <CarFront className="h-4 w-4" />
+                        </div>
+                        <p className="font-medium text-slate-200">{booking.vehicleType}</p>
                       </div>
-                      <p className="font-medium text-slate-200">{booking.vehicleType}</p>
-                    </div>
-                  </td>
-                  <td className="border-t border-white/10 px-6 py-5 text-slate-300">{booking.serviceType}</td>
-                  <td className="border-t border-white/10 px-6 py-5">
-                    <span className="inline-flex items-center gap-2 text-slate-200">
-                      <Clock3 className="h-4 w-4 text-orange-300" />
-                      {booking.time}
-                    </span>
-                  </td>
-                  <td className="border-t border-white/10 px-6 py-5">
-                    <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold ${statusStyles.badge} ${statusStyles.text} ${statusStyles.ring}`}>
-                      <StatusIcon className="h-3.5 w-3.5" />
-                      {getStatusLabel(booking.status)}
-                    </span>
-                  </td>
-                  <td className="border-t border-white/10 px-6 py-5 text-right">
-                    <span className="inline-flex items-center gap-1 text-base font-semibold text-white">
-                      <DollarSign className="h-4 w-4 text-orange-300" />
-                      {booking.amount}
-                    </span>
-                  </td>
-                </tr>
-              );
-            })}
+                    </td>
+                    <td className="border-t border-white/10 px-6 py-5 text-slate-300">{booking.serviceType}</td>
+                    <td className="border-t border-white/10 px-6 py-5">
+                      <span className="inline-flex items-center gap-2 text-slate-200">
+                        <Clock3 className="h-4 w-4 text-orange-300" />
+                        {booking.time}
+                      </span>
+                    </td>
+                    <td className="border-t border-white/10 px-6 py-5">
+                      <span className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold ${statusStyles.badge} ${statusStyles.text} ${statusStyles.ring}`}>
+                        <StatusIcon className="h-3.5 w-3.5" />
+                        {getStatusLabel(booking.status)}
+                      </span>
+                    </td>
+                    <td className="border-t border-white/10 px-6 py-5 text-right">
+                      <span className="inline-flex items-center gap-1 text-base font-semibold text-white">
+                        <DollarSign className="h-4 w-4 text-orange-300" />
+                        {booking.amount}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })
+            )}
           </tbody>
         </table>
       </div>

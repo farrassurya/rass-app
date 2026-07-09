@@ -2,6 +2,22 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { supabase } from '../lib/supabaseClient';
+import PanelCard from '../components/PanelCard.jsx';
+import SectionHeader from '../components/SectionHeader.jsx';
+import FormField from '../components/FormField.jsx';
+import SelectField from '../components/SelectField.jsx';
+import PrimaryButton from '../components/PrimaryButton.jsx';
+import bookingData from '../data/bookingData.json';
+
+const bookingFormDefaults = {
+  customerName: '',
+  phoneNumber: '',
+  vehicleType: '',
+  serviceType: '',
+  preferredDate: '',
+  preferredTime: bookingData.timeSlots[0],
+  notes: '',
+};
 
 export default function Landing() {
   const [email, setEmail] = useState('');
@@ -9,8 +25,80 @@ export default function Landing() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formMessage, setFormMessage] = useState({ type: 'idle', text: '' });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [bookingForm, setBookingForm] = useState(bookingFormDefaults);
+  const [bookingMessage, setBookingMessage] = useState({ type: 'idle', text: '' });
+  const [isBookingSubmitting, setIsBookingSubmitting] = useState(false);
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function updateBookingField(fieldName, value) {
+    setBookingForm((current) => ({
+      ...current,
+      [fieldName]: value,
+    }));
+  }
+
+  async function handleBookingSubmit(event) {
+    event.preventDefault();
+
+    const customerName = bookingForm.customerName.trim();
+    const phoneNumber = bookingForm.phoneNumber.trim();
+    const preferredDate = bookingForm.preferredDate.trim();
+    const notes = bookingForm.notes.trim();
+
+    if (!customerName || !phoneNumber || !preferredDate) {
+      setBookingMessage({
+        type: 'error',
+        text: 'Lengkapi nama, nomor telepon, dan tanggal booking Anda terlebih dahulu.',
+      });
+      return;
+    }
+
+    setIsBookingSubmitting(true);
+    setBookingMessage({ type: 'loading', text: 'Menyiapkan permintaan booking Anda...' });
+
+    try {
+      const payload = {
+        customer_name: customerName,
+        phone_number: phoneNumber,
+        vehicle_type: bookingForm.vehicleType.trim(),
+        service_type: bookingForm.serviceType.trim(),
+        preferred_date: preferredDate,
+        preferred_time: bookingForm.preferredTime,
+        notes,
+        status: 'pending',
+        source: 'landing_page',
+      };
+
+      const { error } = await supabase.from('bookings').insert([payload]);
+
+      if (error) {
+        if (error.code === '42501' || /row-level security|permission denied/i.test(error.message ?? '')) {
+          throw new Error('Booking tidak dapat diproses saat ini.');
+        }
+
+        if (error.code === '42P01' || /relation .* does not exist/i.test(error.message ?? '')) {
+          throw new Error('Layanan booking sedang belum tersedia.');
+        }
+
+        throw error;
+      }
+
+      setBookingMessage({
+        type: 'success',
+        text: 'Terima kasih. Permintaan booking Anda sudah kami terima. Tim kami akan menghubungi Anda untuk konfirmasi.',
+      });
+      setBookingForm(bookingFormDefaults);
+    } catch (error) {
+      console.error('Booking request error:', error);
+      setBookingMessage({
+        type: 'error',
+        text: error instanceof Error && error.message ? error.message : 'Permintaan booking belum berhasil diproses. Silakan coba lagi.',
+      });
+    } finally {
+      setIsBookingSubmitting(false);
+    }
+  }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -244,6 +332,141 @@ export default function Landing() {
               </div>
             </div>
           </div>
+        </section>
+
+        <section id="booking" className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <PanelCard className="p-8">
+            <SectionHeader
+              eyebrow="Booking Online"
+              title="Jadwalkan kunjungan Anda"
+              description="Isi form singkat ini untuk mengatur waktu servis yang paling nyaman bagi Anda."
+            />
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
+                <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Kenapa booking online</p>
+                <p className="mt-2 text-sm font-semibold text-white">Lebih cepat, lebih rapi, dan tanpa antre lama.</p>
+                <p className="mt-2 text-sm leading-6 text-slate-400">Tinggalkan detail Anda, lalu tim kami akan membantu menyesuaikan jadwal kunjungan.</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
+                <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Jam operasional</p>
+                <p className="mt-2 text-sm font-semibold text-white">Senin - Sabtu, 08.00 - 17.00</p>
+                <p className="mt-2 text-sm leading-6 text-slate-400">Booking di luar jam operasional akan kami proses pada hari kerja berikutnya.</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
+                <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Keuntungan booking</p>
+                <p className="mt-2 text-sm font-semibold text-white">Prioritas antrian dan proses konfirmasi yang lebih cepat.</p>
+                <p className="mt-2 text-sm leading-6 text-slate-400">Kami membantu memastikan slot servis Anda tersedia sebelum datang ke workshop.</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-slate-950/60 p-4">
+                <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Konfirmasi</p>
+                <p className="mt-2 text-sm font-semibold text-white">Biasanya kami konfirmasi dalam 1x24 jam.</p>
+                <p className="mt-2 text-sm leading-6 text-slate-400">Tim kami akan menghubungi Anda melalui nomor yang diisi pada formulir.</p>
+              </div>
+            </div>
+          </PanelCard>
+
+          <PanelCard className="p-8">
+            <div className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Form Booking</p>
+              <h3 className="text-2xl font-semibold text-white">Masukkan detail kunjungan</h3>
+              <p className="text-sm leading-6 text-slate-300">Ceritakan kebutuhan servis Anda agar kami bisa membantu menyiapkan jadwal yang sesuai.</p>
+            </div>
+
+            <form className="mt-6 space-y-4" onSubmit={handleBookingSubmit}>
+              <FormField
+                label="Nama Anda"
+                name="customerName"
+                value={bookingForm.customerName}
+                onChange={(event) => updateBookingField('customerName', event.target.value)}
+                placeholder="Masukkan nama lengkap"
+                autoComplete="name"
+              />
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <FormField
+                  label="Nomor WhatsApp"
+                  name="phoneNumber"
+                  value={bookingForm.phoneNumber}
+                  onChange={(event) => updateBookingField('phoneNumber', event.target.value)}
+                  placeholder="08xxxxxxxxxx"
+                  autoComplete="tel"
+                />
+
+                <FormField
+                  label="Tanggal kunjungan"
+                  name="preferredDate"
+                  type="date"
+                  value={bookingForm.preferredDate}
+                  onChange={(event) => updateBookingField('preferredDate', event.target.value)}
+                />
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2">
+                <FormField
+                  label="Kendaraan"
+                  name="vehicleType"
+                  value={bookingForm.vehicleType}
+                  onChange={(event) => updateBookingField('vehicleType', event.target.value)}
+                  placeholder="Contoh: Honda Civic, Toyota Avanza, atau kendaraan lain"
+                />
+
+                <FormField
+                  label="Layanan yang dibutuhkan"
+                  name="serviceType"
+                  value={bookingForm.serviceType}
+                  onChange={(event) => updateBookingField('serviceType', event.target.value)}
+                  placeholder="Oil Change, Brake Service, AC Repair..."
+                />
+              </div>
+
+              <label className="block">
+                <span className="mb-2 block text-sm font-medium text-[#B8C0CC]">Jam yang diinginkan</span>
+                <SelectField
+                  value={bookingForm.preferredTime}
+                  onChange={(event) => updateBookingField('preferredTime', event.target.value)}
+                  options={bookingData.timeSlots}
+                />
+              </label>
+
+              <label className="block">
+                <span className="mb-2 block text-sm font-medium text-[#B8C0CC]">Catatan tambahan</span>
+                <textarea
+                  name="notes"
+                  value={bookingForm.notes}
+                  onChange={(event) => updateBookingField('notes', event.target.value)}
+                  placeholder="Contoh: AC kurang dingin, mohon cek rem belakang, atau keluhan lain"
+                  rows="4"
+                  className="w-full rounded-lg border border-[#334E68]/70 bg-slate-900/70 px-4 py-3 text-white placeholder:text-[#B8C0CC] outline-none transition-smooth focus:border-[#7B57E0] focus:ring-2 focus:ring-[#7B57E0]"
+                />
+              </label>
+
+              <PrimaryButton type="submit" className="w-full" disabled={isBookingSubmitting}>
+                {isBookingSubmitting ? 'Mengirim...' : 'Kirim booking'}
+              </PrimaryButton>
+            </form>
+
+            <div aria-live="polite" className="mt-4 min-h-12">
+              {bookingMessage.type === 'loading' ? (
+                <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300">
+                  <span className="mr-3 inline-flex h-2.5 w-2.5 rounded-full bg-[#8B6FE8] shimmer" />
+                  {bookingMessage.text}
+                </div>
+              ) : null}
+
+              {bookingMessage.type === 'success' ? (
+                <p className="rounded-xl border border-emerald-400/20 bg-emerald-400/10 px-4 py-3 text-sm text-emerald-200">
+                  {bookingMessage.text}
+                </p>
+              ) : null}
+
+              {bookingMessage.type === 'error' ? (
+                <p className="rounded-xl border border-rose-400/20 bg-rose-400/10 px-4 py-3 text-sm text-rose-200">
+                  {bookingMessage.text}
+                </p>
+              ) : null}
+            </div>
+          </PanelCard>
         </section>
 
         <section id="pricing" className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-[0_24px_80px_rgba(2,6,23,0.32)] backdrop-blur-md sm:p-10">

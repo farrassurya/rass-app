@@ -1,0 +1,72 @@
+{
+  "serviceOptions": ["Service Rutin", "Perbaikan Mesin", "Servis AC", "Perawatan Rutin", "Perbaikan Rem"],
+  "vehicleTypes": ["Honda Civic", "Toyota Avanza", "Suzuki Swift", "Mitsubishi Pajero", "Daihatsu Xenia"],
+  "timeSlots": ["08:00", "09:00", "10:30", "13:00", "14:00", "16:00"],
+  "bookingQueue": [
+    {
+      "id": 1,
+      "customerName": "Budi Santoso",
+      "phoneNumber": "081234567890",
+      "vehicleType": "Honda Civic",
+      "serviceType": "Service Rutin",
+      "preferredDate": "2026-05-06",
+      "preferredTime": "08:00",
+      "status": "completed",
+      "amount": "Rp 500.000",
+      "notes": "Ganti oli dan cek rem",
+      "source": "landing"
+    },
+    {
+      "id": 2,
+      "customerName": "Siti Nurhaliza",
+      "phoneNumber": "081234567891",
+      "vehicleType": "Toyota Avanza",
+      "serviceType": "Perbaikan Mesin",
+      "preferredDate": "2026-05-06",
+      "preferredTime": "10:30",
+      "status": "in-progress",
+      "amount": "Rp 1.200.000",
+      "notes": "Mesin brebet saat putaran bawah",
+      "source": "landing"
+    },
+    {
+      "id": 3,
+      "customerName": "Ahmad Wijaya",
+      "phoneNumber": "081234567892",
+      "vehicleType": "Suzuki Swift",
+      "serviceType": "Servis AC",
+      "preferredDate": "2026-05-06",
+      "preferredTime": "14:00",
+      "status": "pending",
+      "amount": "Rp 800.000",
+      "notes": "AC kurang dingin pada siang hari",
+      "source": "landing"
+    },
+    {
+      "id": 4,
+      "customerName": "Rina Kusuma",
+      "phoneNumber": "081234567893",
+      "vehicleType": "Mitsubishi Pajero",
+      "serviceType": "Perawatan Rutin",
+      "preferredDate": "2026-05-06",
+      "preferredTime": "16:00",
+      "status": "completed",
+      "amount": "Rp 650.000",
+      "notes": "Pengecekan berkala bulanan",
+      "source": "landing"
+    },
+    {
+      "id": 5,
+      "customerName": "Bambang Irawan",
+      "phoneNumber": "081234567894",
+      "vehicleType": "Daihatsu Xenia",
+      "serviceType": "Perbaikan Rem",
+      "preferredDate": "2026-05-07",
+      "preferredTime": "09:00",
+      "status": "pending",
+      "amount": "Rp 450.000",
+      "notes": "Rem belakang bunyi berdecit",
+      "source": "landing"
+    }
+  ]
+}
